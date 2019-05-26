@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float altura[10], media, maiorAltura = 0, menorAltura = 3;
+float altura[10], media, maiorAltura = 0, menorAltura = 3, mediana;
 char nome[10][30];//numero de linhas e caracteres
 int c; //contador
 
@@ -53,6 +53,21 @@ float maiorMenorAltura()
 
 }
 
+int comparador(const void * a, const void * b)
+{
+    return ( *(int*)a - *(int*)b );
+}
+
+float medianaAlturas()
+{
+    qsort(altura, 10, sizeof(float), comparador);
+
+    mediana = (altura[4] + altura[5])/ 2.0;
+    printf("Mediana: %.2f\n", mediana);
+
+    return mediana;
+}
+
 int main()
 {
     printf(" APS DE TECNICAS DE PROGRAMACAO\n\n");
@@ -60,7 +75,6 @@ int main()
 
     //inserção de dados
     printf("\n\n\n\n ===TIME DE BASQUETE===\n");
-
 
     for(c = 0; c < 10; c++)
     {
@@ -84,7 +98,7 @@ int main()
     dadosJogadores();
     mediaAlturas();
     maiorMenorAltura();
-
+    medianaAlturas();
     return 0;
 
 }

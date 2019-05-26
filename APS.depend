@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1558901041 source:c:\users\sousa\desktop\projetos\c - faculdade\aps\main.c
+	<stdio.h>
+	<stdlib.h>
+
