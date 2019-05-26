@@ -96,6 +96,9 @@ float medianaAlturas()
 
 int main()
 {
+
+    int verificador = 1;
+
     printf(" APS DE TECNICAS DE PROGRAMACAO\n\n");
     printf(" NOME DO ALUNO: Jhonas Fernandes Souto\tRA: 21106806");
 
@@ -121,11 +124,48 @@ int main()
         }
     }
 
-    dadosJogadores();
-    mediaAlturas();
-    maiorMenorAltura();
-    medianaAlturas();
-    desvioPadraoAltura();
+    do
+    {
+        int menu;
+
+        printf("\n\n\n\n ===TIME DE BASQUETE===\n");
+        printf("1 - Dados dos jogadores\n");
+        printf("2 - Media de alturas\n");
+        printf("3 - Desvio padrao das alturas\n");
+        printf("4 - Maior e Menor altura\n");
+        printf("5 - Mediana das alturas\n");
+        printf("0 - Finalizar\n\n");
+
+        printf("Digite um numero de alguma opcao acima ou 0 para finalizar\n");
+        scanf("%i", &menu);
+
+        switch(menu){
+            case 1:
+                dadosJogadores();
+                break;
+            case 2:
+                mediaAlturas();
+                break;
+            case 3:
+                desvioPadraoAltura();
+                break;
+            case 4:
+                maiorMenorAltura();
+                break;
+            case 5:
+                medianaAlturas();
+                break;
+            case 0:
+                verificador = 0;
+                printf("FIM DO PROGRAMA.\n");
+                break;
+
+            default:
+               printf("Opcao invalida, tente novamente!\n");
+
+        }
+    }while(verificador == 1);
+
     return 0;
 
 }
