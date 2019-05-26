@@ -8,7 +8,6 @@ int c; //contador
 
 void dadosJogadores()
 {
-    //leitura
     printf("\n\n  \tNOMES E ALTURAS\n\n");
     for(c = 0 ; c < 10; c++)
     {
@@ -24,7 +23,6 @@ float mediaAlturas()
     {
         media+= altura[c];
     }
-
     media = media / 10.0;
 
     printf("\nMedia das alturas: %.2f\n", media);
@@ -40,14 +38,15 @@ float desvioPadraoAltura()
             totalAlturas += altura[c];
         }
 
+        // Desvio padrão foi feito de acordo com a fórmula passada
+        // Primeiro executa a somatória e depois finaliza o valor correto do desvio padrão
         for(c = 0; c < 10 ; c++)
         {
             desvioPadrao += (sqrt(altura[c]) / totalAlturas);
         }
-
         desvioPadrao = desvioPadrao - sqrt(media);
-        printf("Desvio padrao: %.2f\n", fabs(desvioPadrao));
 
+        printf("Desvio padrao: %.2f\n", fabs(desvioPadrao));
     }
     else
     {
@@ -59,6 +58,7 @@ float desvioPadraoAltura()
 
 float maiorMenorAltura()
 {
+    // variaveis utilizadas para saber o index do maior e menor altura
     int indexNomeMaior, indexNomeMenor;
 
     for(c = 0; c < 10; c++)
@@ -77,15 +77,17 @@ float maiorMenorAltura()
     }
 
     printf("\nMaior altura:\n");
-    printf("%s, altura: %.2f", nome[indexNomeMaior], maiorAltura);
+    printf("%s, altura: %.2f\n", nome[indexNomeMaior], maiorAltura);
 
     printf("\nMenor altura:\n");
-    printf("%s, altura: %.2f", nome[indexNomeMenor], menorAltura);
+    printf("%s, altura: %.2f\n", nome[indexNomeMenor], menorAltura);
 
     return maiorAltura, menorAltura;
 
 }
 
+//recebe 2 numero de uma array e os compara
+//esse comparador é necessário para usar na função qsort()
 int comparador(const void * a, const void * b)
 {
     return ( *(int*)a - *(int*)b );
@@ -93,6 +95,8 @@ int comparador(const void * a, const void * b)
 
 float medianaAlturas()
 {
+    // copia feita para não modificar o vetor de altura
+    // esssa copia evita erros na hora de mostrar os dados dos jogadores
     float alturaCopia[10];
     for(c = 0; c < 10; c++)
     {
@@ -109,11 +113,14 @@ float medianaAlturas()
 
 int main()
 {
-
+    //verificador do loop do menu, certifica que se a opção 0 não for seleciona, o loop continua
     int verificador = 1;
 
     printf(" APS DE TECNICAS DE PROGRAMACAO\n\n");
-    printf(" NOME DO ALUNO: Jhonas Fernandes Souto\tRA: 21106806");
+    printf(" NOME DO ALUNO: Jhonas Fernandes Souto\tRA: 21106806\n");
+    printf(" NOME DO ALUNO: Rafael Oliveira Sousa\tRA: 20969672\n");
+    printf(" NOME DO ALUNO: Jessica Alexandra Bispo\tRA: 21118118\n");
+    printf(" NOME DO ALUNO: Joao Pedro Almeida\tRA: 21179618\n");
 
     //inserção de dados
     printf("\n\n\n\n ===TIME DE BASQUETE===\n");
@@ -133,7 +140,6 @@ int main()
 
             printf(" Altura do %i jogador:\t\t", (c+1));
             scanf("%f", &altura[c]);
-
         }
     }
 
@@ -180,5 +186,4 @@ int main()
     }while(verificador == 1);
 
     return 0;
-
 }
