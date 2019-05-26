@@ -59,21 +59,28 @@ float desvioPadraoAltura()
 
 float maiorMenorAltura()
 {
+    int indexNomeMaior, indexNomeMenor;
+
     for(c = 0; c < 10; c++)
     {
         if(altura[c] > maiorAltura)
         {
             maiorAltura = altura[c];
+            indexNomeMaior = c;
         }
 
         else if(altura[c] < menorAltura)
         {
             menorAltura = altura[c];
+            indexNomeMenor = c;
         }
     }
 
-    printf("\nMaior altura: %.2f\n", maiorAltura);
-    printf("\nMenor altura: %.2f\n", menorAltura);
+    printf("\nMaior altura:\n");
+    printf("%s, altura: %.2f", nome[indexNomeMaior], maiorAltura);
+
+    printf("\nMenor altura:\n");
+    printf("%s, altura: %.2f", nome[indexNomeMenor], menorAltura);
 
     return maiorAltura, menorAltura;
 
@@ -86,9 +93,15 @@ int comparador(const void * a, const void * b)
 
 float medianaAlturas()
 {
-    qsort(altura, 10, sizeof(float), comparador);
+    float alturaCopia[10];
+    for(c = 0; c < 10; c++)
+    {
+        alturaCopia[c] = altura[c];
+    }
 
-    mediana = (altura[4] + altura[5])/ 2.0;
+    qsort(alturaCopia, 10, sizeof(float), comparador);
+
+    mediana = (alturaCopia[4] + alturaCopia[5])/ 2.0;
     printf("Mediana: %.2f\n", mediana);
 
     return mediana;
