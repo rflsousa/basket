@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
-float altura[10], media, maiorAltura = 0, menorAltura = 3, mediana;
+float altura[10], media, maiorAltura = 0, menorAltura = 3, mediana, desvioPadrao, totalAlturas;
 char nome[10][30];//numero de linhas e caracteres
 int c; //contador
 
@@ -29,6 +30,31 @@ float mediaAlturas()
     printf("\nMedia das alturas: %.2f\n", media);
 
     return media;
+}
+
+float desvioPadraoAltura()
+{
+    if(media > 0){
+        for(c = 0; c < 10 ; c++)
+        {
+            totalAlturas += altura[c];
+        }
+
+        for(c = 0; c < 10 ; c++)
+        {
+            desvioPadrao += (sqrt(altura[c]) / totalAlturas);
+        }
+
+        desvioPadrao = desvioPadrao - sqrt(media);
+        printf("Desvio padrao: %.2f\n", fabs(desvioPadrao));
+
+    }
+    else
+    {
+        printf("Para saber o desvio padrao, calcule primeiro a media das alturas na opcao 2.\n");
+        return 0.0;
+    }
+
 }
 
 float maiorMenorAltura()
@@ -99,6 +125,7 @@ int main()
     mediaAlturas();
     maiorMenorAltura();
     medianaAlturas();
+    desvioPadraoAltura();
     return 0;
 
 }
