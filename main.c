@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float altura[10], altura_media;
+float altura[10], media;
 char nome[10][30];//numero de linhas e caracteres
 int c; //contador
 
@@ -14,6 +14,21 @@ void dadosJogadores()
         printf("%s\t", nome[c]);
         printf("\t\t%.2f\n", altura[c]);
     }
+}
+
+float mediaAlturas()
+{
+
+    for(c = 0; c < 10; c++)
+    {
+        media+= altura[c];
+    }
+
+    media = media / 10.0;
+
+    printf("\nMedia das alturas: %.2f\n", media);
+
+    return media;
 }
 
 int main()
@@ -48,6 +63,7 @@ int main()
     }
 
     dadosJogadores();
+    mediaAlturas();
 
     return 0;
 
