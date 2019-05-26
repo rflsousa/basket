@@ -1,12 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+float altura[10], altura_media;
+char nome[10][30];//numero de linhas e caracteres
+int c; //contador
+
+void dadosJogadores()
+{
+    //leitura
+    printf("\n\n  \tNOMES E ALTURAS\n\n");
+    for(c = 0 ; c < 10; c++)
+    {
+        printf("%s\t", nome[c]);
+        printf("\t\t%.2f\n", altura[c]);
+    }
+}
+
 int main()
 {
 
-    float altura[10], altura_media;
-    char nome[10][30];//numero de linhas e caracteres
-    int c; //contador
+
 
     printf(" APS DE TECNICAS DE PROGRAMACAO\n\n");
     printf(" NOME DO ALUNO: Jhonas Fernandes Souto\tRA: 21106806");
@@ -34,13 +47,8 @@ int main()
         }
     }
 
-    //leitura
-    printf("\n\n  \tNOMES E ALTURAS\n\n");
-    for(c = 0 ; c < 10; c++)
-    {
-        printf(" %s\t", nome[c]);
-        printf(" \t\t%.2f\n", altura[c]);
-    };
+    dadosJogadores();
+
     return 0;
 
 }
